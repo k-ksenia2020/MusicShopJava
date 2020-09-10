@@ -50,10 +50,10 @@
         android:textSize="16sp"
         android:textStyle="bold"/>
 
-    <Spinner
-        android:id="@+id/spinner1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+     <Spinner
+         android:id="@+id/spinner"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content" />
 
     <ImageView
         android:id="@+id/smallView1"
@@ -121,8 +121,7 @@
             android:layout_toRightOf="@id/currencyTextView"
             android:layout_marginStart="110dp"
             android:layout_marginTop="5dp"
-            android:layout_below="@+id/quantityTextView"
-            android:onClick="decreaseQuantity"/>
+            android:layout_below="@+id/quantityTextView"/>
         <TextView
             android:id="@+id/quantityNumberTextView"
             android:layout_width="wrap_content"
@@ -137,7 +136,6 @@
             android:textStyle="bold" />
         <Button
             android:id="@+id/plusButton"
-            android:onClick="increaseQuantity"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:text="+"
@@ -155,5 +153,5 @@
         android:text="ADD TO CART"
         android:textColor="@android:color/white"
         android:background="@color/colorPrimaryDark"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="40dp"/>
 </LinearLayout>
