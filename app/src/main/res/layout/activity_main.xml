@@ -10,7 +10,7 @@
     android:layout_margin="8dp">
 
     <EditText
-        android:id="@+id/NameEditText"
+        android:id="@+id/nameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Your Name"
@@ -151,6 +151,7 @@
             android:layout_below="@+id/quantityTextView"/>
     </RelativeLayout>
     <Button
+        android:id="@+id/addToCartBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="ADD TO CART"

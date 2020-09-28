@@ -1,10 +1,13 @@
 package com.udemy.musicshopjava;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -26,6 +29,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     String goodsName;
     double price;
 
+    EditText userNameEditText;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
      createMap();
 
         quantityTextView = findViewById(R.id.quantityNumberTextView);
+        userNameEditText=findViewById(R.id.nameEditText);
+
         findViewById(R.id.minusButton).setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,6 +64,24 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 updateQuantityField();
                 TextView priceTextView = findViewById(R.id.priceNumberTextView);
                 priceTextView.setText("" + quantity * price);
+            }
+        });
+        findViewById(R.id.addToCartBtn).setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Do what you want here
+
+                    Order order = new Order();
+                    order.userName = userNameEditText.getText().toString();
+                    Log.d("printUserName",order.userName);
+                    order.goodsName = goodsName;
+                    Log.d("goodsNAme",order.goodsName);
+                    order.quantity = quantity;
+                    Log.d("quantity",""+order.quantity);
+                    order.orderPrice = quantity*price;
+                    Log.d("orderPrice",""+ order.orderPrice);
+                    Intent orderIntent = new Intent(MainActivity.this, OrderActivity.class);
+                    startActivity(orderIntent);
             }
         });
     }
@@ -114,6 +140,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
-
     }
+
+
 }
