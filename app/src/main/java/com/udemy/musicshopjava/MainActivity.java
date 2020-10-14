@@ -80,7 +80,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     Log.d("quantity",""+order.quantity);
                     order.orderPrice = quantity*price;
                     Log.d("orderPrice",""+ order.orderPrice);
+                    order.price = price;
+
                     Intent orderIntent = new Intent(MainActivity.this, OrderActivity.class);
+                    orderIntent.putExtra("userNameForIntent", order.userName);
+                    orderIntent.putExtra("goodsName",order.goodsName);
+                    orderIntent.putExtra("quantity", order.quantity);
+                    orderIntent.putExtra("orderPrice", order.orderPrice);
+                    orderIntent.putExtra("price",order.price);
                     startActivity(orderIntent);
             }
         });
