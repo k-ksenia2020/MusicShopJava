@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MusicShopJava</string>
+    <string name="orderActivity_name">Your New Order</string>
+    <string name="mainActivity_name">Best Music Shop</string>
 </resources>

@@ -19,7 +19,7 @@ public class OrderActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order);
 
-        setTitle("Your Order");
+        //setTitle("Your Order");
 
         Intent receivedOrderIntent = getIntent();
         String userName = receivedOrderIntent.getStringExtra("userNameForIntent");
@@ -40,12 +40,20 @@ public class OrderActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_SENDTO);
-                intent.setData(Uri.parse("mailto:"));
+                intent.setType("*/*");
                 intent.putExtra(Intent.EXTRA_EMAIL, addresses);
                 intent.putExtra(Intent.EXTRA_SUBJECT, subject);
                 intent.putExtra(Intent.EXTRA_TEXT, emailText);
                 if (intent.resolveActivity(getPackageManager()) != null) {
                     startActivity(intent);
+
+                /*Intent intent = new Intent(Intent.ACTION_SENDTO); // for email only
+                intent.setData(Uri.parse("mailto:"));
+                intent.putExtra(Intent.EXTRA_EMAIL, addresses);
+                intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+                intent.putExtra(Intent.EXTRA_TEXT, emailText);
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(intent);*/
                 }
             }
 
